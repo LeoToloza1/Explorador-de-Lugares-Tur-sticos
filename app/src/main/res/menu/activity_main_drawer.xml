@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_mapas"
+            android:icon="@drawable/ubicacion"
+            android:title="Mapas" />
+        <item
+            android:id="@+id/nav_lugares"
+            android:icon="@drawable/lugares"
+            android:title="Lugares Turisticos" />
+        <item
+            android:id="@+id/nav_config"
+            android:icon="@drawable/configuraciones"
+            android:title="Configuración" />
+        <item
+            android:id="@+id/nav_salir"
+            android:title="Salir"
+            android:icon="@drawable/salir"/>
+    </group>
+</menu>
