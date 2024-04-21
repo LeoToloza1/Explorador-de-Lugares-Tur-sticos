@@ -24,7 +24,6 @@ public class DetalleViewModel extends AndroidViewModel {
     public void recuperarLugar(Intent intent){
         LugarTuristico lugar=(LugarTuristico) intent.getSerializableExtra("lugares");
         if (lugar!=null){
-
             lugarLiveData.setValue(lugar);
         }
         }

@@ -1,13 +1,29 @@
 <resources>
-    <string name="app_name">Explorador de lugares turisticos</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+        <string name="navigation_drawer_open">Abrir el cajón de navegación</string>
+        <string name="navigation_drawer_close">Cerrar el cajón de navegación</string>
+        <string name="nav_header_title">Android Studio</string>
+        <string name="nav_header_subtitle">android.studio@android.com</string>
+        <string name="nav_header_desc">Encabezado de navegación</string>
+        <string name="action_settings">Configuraciones</string>
+        <string name="menu_home">Inicio</string>
+        <string name="menu_gallery">Galería</string>
+        <string name="menu_slideshow">Presentación de diapositivas</string>
+        <string name="app_name">Explorador de lugares turísticos</string>
+        <string name="Atrás">Atrás</string>
+        <string name="horario">Horario</string>
+        <string name="Precio">Precio</string>
+        <string name="configuracion">Configuración</string>
+        <string name="configuracion_mapa">Configuración del Mapa</string>
+        <string name="por_defecto">Por defecto</string>
+        <string name="satelital">Satelital</string>
+        <string name="español">Español</string>
+        <string name="ingles">Inglés</string>
+        <string name="salir">Salir</string>
+        <string name="ver_detalles">Ver Detalles</string>
+        <string name="leonel_toloza">Leonel Toloza</string>
+        <string name="leotoloza6_gmail_com">leotoloza6@gmail.com</string>
+        <string name="mapas">Mapas</string>
+        <string name="lugares_turisticos">Lugares Turisticos</string>
+        <string name="Mapa_interactivo">Mapa Interactivo</string>
+        <string name="lugares_cercanos">Lugares Cercanos</string>
 </resources>

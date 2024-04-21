@@ -1,45 +1,31 @@
 package com.leotoloza.exploradordelugaresturisticos.ui.Mapa;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.leotoloza.exploradordelugaresturisticos.R;
-import com.leotoloza.exploradordelugaresturisticos.databinding.FragmentMapsBinding;
 import com.leotoloza.exploradordelugaresturisticos.modelo.LugarTuristico;
-import com.leotoloza.exploradordelugaresturisticos.ui.Configuracion.SettingsViewModel;
+import com.leotoloza.exploradordelugaresturisticos.ui.Configuracion.ConfigFragment;
 
-import java.util.ArrayList;
 import java.util.List;
-
 public class MapsFragment extends Fragment {
-    private FragmentMapsBinding binding;
     private UbicacionViewModel viewModel;
-    private Marker marker;
-    private GoogleMap googleMap;
-
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
         @Override
         public void onMapReady(GoogleMap googleMap) {
-
-
             viewModel.getLugaresTuristicos().observe(getViewLifecycleOwner(), new Observer<List<LugarTuristico>>() {
                 @Override
                 public void onChanged(List<LugarTuristico> lugarTuristicos) {
@@ -49,21 +35,20 @@ public class MapsFragment extends Fragment {
                     }
                 }
             });
-
             viewModel.getMLocation().observe(getViewLifecycleOwner(), new Observer<Location>() {
                 @Override
                 public void onChanged(Location location) {
                     LatLng ubicacion = new LatLng(location.getLatitude(), location.getLongitude());
                     googleMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_marcador)).position(ubicacion).title("Mi Ubicación"));
                     googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ubicacion, 15.0f));
+
                 }
             });
-
             viewModel.obtenerUltimaUbicacion();
             viewModel.cargarLugares();
+            googleMap.setMapType(ConfigFragment.mapaElegido);
         }
     };
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -76,10 +61,10 @@ public class MapsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         if (mapFragment != null) {
             mapFragment.getMapAsync(callback);
-
         }
     }
 }

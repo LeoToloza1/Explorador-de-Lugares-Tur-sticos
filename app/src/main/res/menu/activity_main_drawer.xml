@@ -8,18 +8,18 @@
         <item
             android:id="@+id/nav_mapas"
             android:icon="@drawable/ubicacion"
-            android:title="Mapas" />
+            android:title="@string/mapas" />
         <item
             android:id="@+id/nav_lugares"
             android:icon="@drawable/lugares"
-            android:title="Lugares Turisticos" />
+            android:title="@string/lugares_turisticos" />
         <item
             android:id="@+id/nav_config"
             android:icon="@drawable/configuraciones"
-            android:title="Configuración" />
+            android:title="@string/configuracion" />
         <item
             android:id="@+id/nav_salir"
-            android:title="Salir"
+            android:title="@string/salir"
             android:icon="@drawable/salir"/>
     </group>
 </menu>

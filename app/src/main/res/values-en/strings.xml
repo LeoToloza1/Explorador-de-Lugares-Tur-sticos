@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="app_name">Explorer turistic places</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slide Show</string>
+    <string name="Atrás">Back</string>
+    <string name="horario">Hour</string>
+    <string name="Precio">Price</string>
+    <string name="configuracion">Settings</string>
+    <string name="configuracion_mapa">Maps Settings</string>
+    <string name="por_defecto">Default</string>
+    <string name="satelital">Satelital</string>
+    <string name="español">Spanish</string>
+    <string name="ingles">English</string>
+    <string name="salir">Exit</string>
+    <string name="ver_detalles">Details</string>
+    <string name="leonel_toloza">Leonel Toloza</string>
+    <string name="leotoloza6_gmail_com">leotoloza6@gmail.com</string>
+    <string name="mapas">Maps</string>
+    <string name="lugares_turisticos">Turistic places</string>
+    <string name="Mapa_interactivo">Interactive Map</string>
+    <string name="lugares_cercanos">Near Places</string>
+
+</resources>

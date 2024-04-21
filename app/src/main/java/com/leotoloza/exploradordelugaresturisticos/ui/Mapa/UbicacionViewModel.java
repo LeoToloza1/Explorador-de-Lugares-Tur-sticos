@@ -50,16 +50,16 @@ public class UbicacionViewModel extends AndroidViewModel {
         return lugaresLiveData;
     }
 
-    public MutableLiveData<Integer>getTipoMapaMutable(){
-        if(tipoMapaMutable==null){
-            tipoMapaMutable=new MutableLiveData<>();
-        }
-        return tipoMapaMutable;
-    }
-    public void setTipoMapa(int tipoMapa) {
-        Log.d("salida", "setTipoMapa: viewModel"+tipoMapa );
-        tipoMapaMutable.setValue(tipoMapa);
-    }
+//    public MutableLiveData<Integer>getTipoMapaMutable(){
+//        if(tipoMapaMutable==null){
+//            tipoMapaMutable=new MutableLiveData<>();
+//        }
+//        return tipoMapaMutable;
+//    }
+//    public void setTipoMapa(int tipoMapa) {
+//        Log.d("salida", "setTipoMapa: viewModel"+tipoMapa );
+//        tipoMapaMutable.setValue(tipoMapa);
+//    }
     public void cargarLugares() {
         List<LugarTuristico> lugares = new ArrayList<>();
         lugares.add(new LugarTuristico("Museo de Carpinteria", -32.415945190627006, -64.99283913141227));

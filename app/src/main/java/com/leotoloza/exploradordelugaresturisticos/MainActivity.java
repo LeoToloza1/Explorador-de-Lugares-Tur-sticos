@@ -23,7 +23,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.leotoloza.exploradordelugaresturisticos.databinding.ActivityMainBinding;
-import com.leotoloza.exploradordelugaresturisticos.ui.Configuracion.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,15 +58,6 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Maneja los clics en los elementos del menú de la barra de acciones.
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
