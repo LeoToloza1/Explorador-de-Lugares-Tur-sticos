@@ -58,7 +58,6 @@ public class ConfigFragment extends Fragment {
         switchIdioma.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == finalSwitchState) {
-                    // El cambio fue causado por la recreación de la actividad, no hacer nada
                     return;
                 }
                 if (isChecked) {
@@ -77,9 +76,7 @@ public class ConfigFragment extends Fragment {
     public void onChanged(String lang) {
         setLocale(lang);
     }
-
 });
-
         return root;
     }
     public void setLocale(String lang) {
@@ -90,7 +87,6 @@ public class ConfigFragment extends Fragment {
         conf.setLocale(myLocale);
         res.updateConfiguration(conf, dm);
     }
-
     private void seleccionRadio(int tipoMapa) {
         switch (tipoMapa) {
             case GoogleMap.MAP_TYPE_TERRAIN:
@@ -106,8 +102,6 @@ public class ConfigFragment extends Fragment {
                 break;
         }
     }
-
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
