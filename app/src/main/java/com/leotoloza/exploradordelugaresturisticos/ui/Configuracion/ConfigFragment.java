@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -32,7 +34,6 @@ public class ConfigFragment extends Fragment {
         super.onSaveInstanceState(outState);
         outState.putBoolean("switchState", binding.switchIdioma.isChecked());
     }
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         viewModel= new ViewModelProvider(this).get(ConfigViewModel.class);
@@ -48,35 +49,25 @@ public class ConfigFragment extends Fragment {
                 seleccionRadio(tipoMapa);
             }
         });
-        boolean switchState = false;
-        if (savedInstanceState != null) {
-            switchState = savedInstanceState.getBoolean("switchState");
-        }
-        binding.switchIdioma.setChecked(switchState);
-        Switch switchIdioma = binding.switchIdioma;
-        boolean finalSwitchState = switchState;
-        switchIdioma.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        binding.switchIdioma.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked == finalSwitchState) {
-                    return;
+                String newLang = isChecked ? "en" : "es";
+                /**
+                 * acá tambien tuve que usar esta pequeña logica, porque entra en un bucle
+                 * al tocar el switch y usar el recreate() se recrea la activity y me queda en el bucle.
+                 */
+                if (!newLang.equals(viewModel.getLanguage().getValue())) {
+                    viewModel.cambiarIdioma(isChecked);
+                    getActivity().recreate(); // se usa para reiniciar la vista
                 }
-                if (isChecked) {
-                    Log.d("salida", "onCheckedChanged: INGLES");
-                    viewModel.setIdioma("en");
-                } else {
-                    Log.d("salida", "onCheckedChanged: ESPAÑOL");
-                    viewModel.setIdioma("es");
-                }
-                getActivity().recreate();
             }
         });
-
-    viewModel.getLanguage().observe(getViewLifecycleOwner(), new Observer<String>() {
-    @Override
-    public void onChanged(String lang) {
-        setLocale(lang);
-    }
-});
+        viewModel.getLanguage().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String lang) {
+                setLocale(lang);
+            }
+        });
         return root;
     }
     public void setLocale(String lang) {
@@ -87,6 +78,14 @@ public class ConfigFragment extends Fragment {
         conf.setLocale(myLocale);
         res.updateConfiguration(conf, dm);
     }
+
+    /**
+     * tuve que usar logica en la vista porque sino entra en una especie de bucle cuando quiero cambiar
+     * el tipo de mapa.
+     * NO es lo que aprendimos, pero no encontré otra solución.
+     * Entiendo que la vista deberia no tener logica o tener Lo MENOS posible.
+     * @param tipoMapa
+     */
     private void seleccionRadio(int tipoMapa) {
         switch (tipoMapa) {
             case GoogleMap.MAP_TYPE_TERRAIN:

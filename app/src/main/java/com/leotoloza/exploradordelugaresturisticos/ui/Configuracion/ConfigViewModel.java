@@ -9,6 +9,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.gms.maps.GoogleMap;
+
 public class ConfigViewModel extends AndroidViewModel {
     private MutableLiveData<Integer> tipoMapaMutable;
     private MutableLiveData<String> idiomaMutable;
@@ -35,7 +37,10 @@ public class ConfigViewModel extends AndroidViewModel {
         }
         return idiomaMutable;
     }
-
+    public void cambiarIdioma(boolean isChecked) {
+        String lang = isChecked ? "en" : "es";
+        setIdioma(lang);
+    }
     public void setIdioma(String idioma) {
         idiomaMutable.setValue(idioma);
     }
