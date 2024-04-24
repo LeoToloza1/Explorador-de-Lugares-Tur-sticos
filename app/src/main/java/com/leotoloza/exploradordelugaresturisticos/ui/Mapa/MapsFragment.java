@@ -39,7 +39,8 @@ public class MapsFragment extends Fragment {
                 @Override
                 public void onChanged(Location location) {
                     LatLng ubicacion = new LatLng(location.getLatitude(), location.getLongitude());
-                    googleMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_marcador)).position(ubicacion).title("Mi Ubicación"));
+                    googleMap.addMarker(new MarkerOptions().position(ubicacion).title("Mi Ubicación"));
+                    //le saque el icono del marcador
                     googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ubicacion, 15.0f));
 
                 }

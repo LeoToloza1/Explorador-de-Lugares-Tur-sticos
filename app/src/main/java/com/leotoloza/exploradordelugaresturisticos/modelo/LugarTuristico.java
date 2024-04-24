@@ -9,6 +9,7 @@ public class LugarTuristico implements Serializable {
     private String horario;
     private double precio;
     private int imagen;
+    private String descripcion;
 
     public LugarTuristico(String nombre, double latitud, double longitud) {
         this.nombre = nombre;
@@ -17,14 +18,16 @@ public class LugarTuristico implements Serializable {
         this.horario = "";
         this.precio = 0.0;
         this.imagen = 0;
+        this.descripcion = "";
     }
-    public LugarTuristico(String nombre, double latitud, double longitud, String horario, double precio, int imagen) {
+    public LugarTuristico(String nombre, double latitud, double longitud, String horario, double precio, String descripcion, int imagen) {
         this.nombre = nombre;
         this.latitud = latitud;
         this.longitud = longitud;
         this.horario = horario;
         this.precio = precio;
         this.imagen = imagen;
+        this.descripcion = descripcion;
     }
         public String getNombre() {
             return nombre;
@@ -37,6 +40,14 @@ public class LugarTuristico implements Serializable {
         public double getLongitud() {
             return longitud;
         }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;

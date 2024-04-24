@@ -26,4 +26,5 @@
         <string name="lugares_turisticos">Lugares Turisticos</string>
         <string name="Mapa_interactivo">Mapa Interactivo</string>
         <string name="lugares_cercanos">Lugares Cercanos</string>
+    <string name="Detalle">Detalle</string>
 </resources>

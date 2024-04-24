@@ -15,7 +15,11 @@
         android:id="@+id/nav_lugares"
         android:name="com.leotoloza.exploradordelugaresturisticos.ui.Lugares_Turisticos.LugaresFragment"
         android:label="@string/lugares_cercanos"
-        tools:layout="@layout/fragment_lugar" />
+        tools:layout="@layout/fragment_lugar" >
+        <action
+            android:id="@+id/action_nav_lugares_to_nav_detalle"
+            app:destination="@id/nav_detalle" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_config"
@@ -27,4 +31,13 @@
         android:name="com.leotoloza.exploradordelugaresturisticos.ui.Salir.SalirFragment"
         android:label="@string/salir"
         tools:layout="@layout/fragment_config" />
+    <fragment
+        android:id="@+id/nav_detalle"
+        android:name="com.leotoloza.exploradordelugaresturisticos.ui.Lugares_Turisticos.DetalleFragment"
+        android:label="@string/Detalle"
+        tools:layout="@layout/fragment_detalle" >
+        <action
+            android:id="@+id/action_nav_detalle_to_nav_lugares"
+            app:destination="@id/nav_lugares" />
+    </fragment>
 </navigation>
